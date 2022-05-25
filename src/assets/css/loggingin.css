@@ -1,0 +1,25 @@
+.verified {
+  position: absolute;
+  left: 20%;
+  height: 100%;
+  background-color: rgba(95, 244, 95, 0.84);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: example;
+  animation-duration: 1s;
+}
+
+.signingin {
+  position: absolute;
+}
+
+@keyframes example {
+  from {
+    top: -50%;
+  }
+  to {
+    top: 4%;
+  }
+}
