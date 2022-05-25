@@ -8,8 +8,6 @@ function ValidateDoc() {
   console.log(otpVerified);
   let [uidForm, setShowUidForm] = useState(false);
   let [signingIn, setSigningIn] = useState(false);
-  let [showBtn, setShowBtn] = useState(true);
-
   useEffect(() => {
     if (!localStorage.getItem("verified")) {
       setShowUidForm(true);

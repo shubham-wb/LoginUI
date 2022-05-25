@@ -7,8 +7,6 @@ import {
   Navigate,
 } from "react-router-dom";
 import { ValidateDoc, Register } from "./";
-import { useContext } from "react";
-import { AuthContext } from "../Provider/authProvider";
 
 function App() {
   let userEmail = localStorage.getItem("email");
@@ -41,6 +39,8 @@ function App() {
           <Route exact path='/register' element={<Register />}></Route>
           <Route exact path='/' element={<Register />}></Route>
         </Route>
+
+        <Route exact path='*' element={<div>Error 404 not found</div>}></Route>
       </Routes>
     </BrowserRouter>
   );
