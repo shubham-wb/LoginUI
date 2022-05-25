@@ -20,7 +20,6 @@ const AuthProvider = ({ children }) => {
 
   const handleResetUid = () => {
     localStorage.removeItem("uid");
-
     setUid("");
   };
 

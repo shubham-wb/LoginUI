@@ -34,10 +34,12 @@ function App() {
             path='authentication=true/uid_validation'
             element={<ValidateDoc />}
           ></Route>
+          <Route exact path='/' element={<ValidateDoc />}></Route>
         </Route>
 
         <Route path='/' element={<LoggedInRoute />}>
           <Route exact path='/register' element={<Register />}></Route>
+          <Route exact path='/' element={<Register />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

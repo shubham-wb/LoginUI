@@ -114,6 +114,7 @@ export default function UidForm(props) {
               <input
                 style={{ width: "10%", height: "40%" }}
                 type='checkbox'
+                disabled={!uid}
                 value={agreeTC}
                 onChange={handleAgreeTCChange}
               ></input>
@@ -123,9 +124,14 @@ export default function UidForm(props) {
             </div>
 
             <div className='uid-input'>
-              <input type='text' value={otp} onChange={handleOtpChange}></input>
+              <input
+                type='text'
+                value={otp}
+                onChange={handleOtpChange}
+                disabled={!(uid && agreeTC)}
+              ></input>
               <button
-                disabled={OtpbtnEnable}
+                disabled={OtpbtnEnable || !(uid && agreeTC)}
                 onClick={() => {
                   handleSubmitOtp();
                 }}

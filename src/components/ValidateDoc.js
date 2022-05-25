@@ -10,10 +10,6 @@ function ValidateDoc() {
   let [signingIn, setSigningIn] = useState(false);
   let [showBtn, setShowBtn] = useState(true);
 
-  // window.addEventListener("click", () => {
-  //   setShowUidForm(false);
-  // });
-
   useEffect(() => {
     if (!localStorage.getItem("verified")) {
       setShowUidForm(true);
@@ -24,6 +20,11 @@ function ValidateDoc() {
     setShowUidForm(true);
   }
 
+  setTimeout(() => {
+    document.getElementById("doc").addEventListener("click", () => {
+      setShowUidForm(false);
+    });
+  }, 2000);
   function handleAccepted() {
     setShowUidForm(false);
     setSigningIn(true);
@@ -37,18 +38,52 @@ function ValidateDoc() {
       ) : (
         <Loggingin />
       )}
-      <div className='doc'>
-        <img src={TC} alt='terms and conditions'></img>
-      </div>
-      {!localStorage.getItem("verified") ? (
-        <button
-          onClick={() => {
-            handleClick();
+      <div
+        className='doc'
+        id='doc'
+        style={{
+          height: "100%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={TC}
+          style={{
+            height: "90%",
+            width: "40%",
           }}
-        >
-          Request OTP to Sign
-        </button>
-      ) : null}
+          alt='terms and conditions'
+        ></img>
+      </div>
+      <div
+        style={{
+          height: "10%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {!localStorage.getItem("verified") ? (
+          <button
+            style={{
+              cursor: "pointer",
+              height: "40px",
+              width: "200px",
+              background: "skyblue",
+              zIndex: "100",
+            }}
+            onClick={() => {
+              handleClick();
+            }}
+          >
+            Request OTP to Sign
+          </button>
+        ) : null}
+      </div>
     </>
   );
 }

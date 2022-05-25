@@ -15,7 +15,7 @@ function Loggingin() {
       style={{
         width: "100%",
         height: "30%",
-        backgroundColor: "white",
+        backgroundColor: "transparent",
       }}
     >
       {signingIn ? (
